@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081030224502) do
+ActiveRecord::Schema.define(:version => 20081031175124) do
+
+  create_table "forums", :force => true do |t|
+    t.string  "name"
+    t.string  "slug"
+    t.text    "description"
+    t.integer "position",    :default => 1
+  end
+
+  add_index "forums", ["position"], :name => "index_forums_on_position"
+  add_index "forums", ["slug"], :name => "index_forums_on_slug"
 
   create_table "privileges", :force => true do |t|
     t.string "name"

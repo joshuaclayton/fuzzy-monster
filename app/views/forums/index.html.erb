@@ -1,0 +1,13 @@
+<% sub_header do %>Forums<% end %>
+<% content do %>
+  <% recordset :headers => ["Forum", "Information"] do %>
+    <tbody>
+      <% @forums.each do |forum| %>
+        <% zebra_row do %>
+          <td><%= link_to forum.name, forum %></td>
+          <td></td>
+        <% end %>
+      <% end %>
+    </tbody>
+  <% end %>
+<% end %>

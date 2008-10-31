@@ -1,0 +1,11 @@
+<% sub_header do %>Create a New Forum<% end %>
+<% content :full do %>
+  <% form_for @forum do |form| %>
+    <% fieldset "Forum Information" do %>
+      <%= render :partial => "forums/form", :locals => {:form => form} %>
+    <% end %>
+    <% fieldset "Form Actions", :actions do %>
+      <%= form.submit "Create Forum" %> or <%= cancel_link :back %>
+    <% end %>
+  <% end %>
+<% end %>
