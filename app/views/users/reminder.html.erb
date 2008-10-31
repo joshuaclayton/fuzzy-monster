@@ -1,12 +1,14 @@
-<% form_for :user do |form| -%>
-	<p>
-  	<b>Email Address</b><br />
-		<%= form.text_field :email_address %>
-  </p>
-
-	<p>
-  	<%= form.submit 'Submit' %>
-	</p>
-<% end -%>
-
-<%= link_to "Login", login_path %>
+<% content :full do %>
+  <% form_for :user do |form| %>
+    <% fieldset "Enter Account Information" do %>
+      <% set do %>
+        <%= form.label :email_address %>
+        <%= form.text_field :email_address %>
+      <% end %>
+    <% end %>
+    <% fieldset "Form Actions", :actions do %>
+      <%= form.submit "Submit" %>
+    <% end %>
+  <% end %>
+  <%= link_to "Login", login_path %>
+<% end %>

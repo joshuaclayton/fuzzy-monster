@@ -1,0 +1,10 @@
+<% if current_user %>
+  <p>Welcome, <%= current_user.full_name %></p>
+  <br/>
+  <ul>
+    <li><%= link_to "Profile", profile_path, :class => "profile" %></li>
+    <li class="logout"><%= link_to "Logout", logout_path %></li>
+  </ul>
+<% else %>
+  <p>You're not logged in.  <%= link_to "Log in here", login_path %></p>
+<% end %>

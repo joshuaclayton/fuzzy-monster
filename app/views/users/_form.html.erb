@@ -1,0 +1,14 @@
+<% fieldset "Account Information" do %>
+  <% set do %>
+    <%= form.label :email_address %>
+    <%= form.text_field :email_address %>
+  <% end %>
+  <% set do %>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  <% end %>
+  <% set do %>
+    <%= form.label :password_confirmation, "Confirm Password" %>
+    <%= form.password_field :password_confirmation %>
+  <% end %>
+<% end %>

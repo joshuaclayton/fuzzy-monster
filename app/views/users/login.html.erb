@@ -1,23 +1,29 @@
-<% form_for :user do |form| -%>
-	<p>
-  	<b>Email Address</b><br />
-		<%= form.text_field :email_address %>
-  </p>
-
-	<p>
-  	<b>Password</b><br />
-		<%= form.password_field :password %>
-  </p>
-
-	<p>
-		<%= check_box_tag :remember_me %>
-  	<b>Remember Me</b>
-  </p>
-
-	<p>
-  	<%= form.submit 'Login' %>
-	</p>
-<% end -%>
-
-<%= link_to "Forgot your username or password?", reminder_path %> |
-<%= link_to "Need an account?", signup_path %>
+<% content do %>
+  <% form_for :user do |form| -%>
+    <% fieldset "Log In" do %>
+      <% set do %>
+        <%= form.label :email_address %>
+        <%= form.text_field :email_address %>
+      <% end %>
+      <% set do %>
+        <%= form.label :password %>
+        <%= form.password_field :password %>
+      <% end %>
+      <% set :check_box do %>
+        <%= form.label :remember_me %>
+        <%= check_box_tag :remember_me %>
+      <% end %>
+    <% end %>
+    <% fieldset "Form Actions", :actions do %>
+      <%= form.submit "Login" %>
+    <% end %>
+  <% end -%>
+<% end %>
+<% extra_content do %>
+  <% section "Options" do %>
+    <ul>
+      <%= tab "Forgot your username or password?", reminder_path %>
+      <%= tab "Need an account?", signup_path %>
+    </ul>
+  <% end %>
+<% end %>

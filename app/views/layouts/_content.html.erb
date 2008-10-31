@@ -1,0 +1,31 @@
+<% column do -%>
+  <% column :three_fourths do %>
+    <% if yield(:sub_header) %><h2 class="alt"><%= yield :sub_header %></h2><% end %>
+  <% end %>
+  <% if yield(:inline_form)%>
+    <% column :full, :id => "inline-form" do %>
+      <%= yield :inline_form %>
+    <% end %>
+  <% end %>
+<% end -%>
+<% if yield(:sub_header) %><hr/><% end %>
+
+<% column do %>
+  <% unless flash[:error].blank? %>
+    <% column :full, :id => 'flash-error' do %>
+      <p class="error"><%= icon(:cancel) %><%= flash[:error] %></p>
+    <% end %>
+  <% end %>
+  <% unless flash[:notice].blank? %>
+    <% column :full, :id => 'flash-notice' do %>
+      <p class="success"><%= icon(:accept) %><%= flash[:notice] %></p>
+    <% end %>
+  <% end %>
+  <% if yield(:information) %>
+    <% column :full do %>
+      <p class="information"><%= icon(:information)%><%= yield :information %></p>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= yield :content %>

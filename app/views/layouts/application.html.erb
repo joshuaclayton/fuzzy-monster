@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta http-equiv="Content-Type" content="text/html" />
     <title><%= @page_title.compact.join(" &#187; ") %></title>
+    <%= stylesheet_link_tag 'screen', 'my-screen', :media => "screen, projection" %>
+    <%= stylesheet_link_tag 'print', 'screen', :media => "print" %>
+    <!--[if IE]>
+      <%= stylesheet_link_tag 'ie', :media => "screen, projection" %>
+    <![endif]-->
   </head>
   <body>
-    <%= yield %>
+    <% container :class => "container", :id => "container" do %>
+      <a href="#content" class="hide">Skip to Content</a>
+      <% column :full, :id => 'header' do %>
+        <h1 id="brand-logo"><%= @page_title.compact[0..1].join(" &#187; ") %></h1>
+        <div id="nav-user">
+        <%= render :partial => 'layouts/logged_in_info'%>
+        </div>
+        <hr class="hide"/>
+        <%= render :partial => "layouts/navigation" %>
+      <% end %>
+        <hr class="hide"/>
+      
+      <%= render :partial => 'layouts/content_wrapper' %>
+      <hr/>
+      <% column :full, :id => "footer" do %>
+        <p>&copy;<%= @copyright_year %> <%= ApplicationController::APPLICATION_NAME %></p>
+      <% end %>
+      <a href="#container" class="hide">Return to Top</a>
+      
+    <% end %>
+    <div id="notification" style="display: none;"><%= image_tag("ajax-loader.gif") %> Waiting...</div>
+    <%= javascript_include_tag "jquery", "jrails" %>
+
+    <%= yield :footer %>
   </body>
 </html>

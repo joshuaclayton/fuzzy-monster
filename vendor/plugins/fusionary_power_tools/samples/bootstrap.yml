@@ -1,0 +1,40 @@
+# bootstrap.yml
+# Put this file in your config directory for further processing by the
+# bootstrap script.
+#
+# Here's an example:
+# In the filesystem section, all paths are relative to RAILS_ROOT.
+# 
+# add a sequence in the create section to create missing folders such as /log.
+# add a sequence in the verify section to raise an exception if a folder is missing
+# to let the user know that a very important folder is missing.
+#
+# In the gems section, specify the gems that the user needs to run the application. 
+# The version of the gem needed can also be specified (see the documentation at rubygems.org 
+# for the format of version strings).  
+# 
+# filesystem:
+#   create:
+#     - "log"
+#     - "tmp/cache"
+#     - "tmp/pids"
+#     - "tmp/sessions"
+#     - "tmp/sockets"
+#   verify:
+#     - "public/images"
+# gems:
+#   rails:
+#   RedCloth: "= 3.0.3"
+ 
+filesystem:
+  create:
+    - "log"
+    - "tmp/cache"
+    - "tmp/pids"
+    - "tmp/sessions"
+    - "tmp/sockets"
+  verify:
+    - "public/images"
+gems:
+  rails: 
+  RedCloth: "= 3.0.3"

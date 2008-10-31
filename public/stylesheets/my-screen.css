@@ -1,0 +1,190 @@
+body p img {margin: 0;}
+img.icon {padding-right: 5px; position: relative; top: .3em; float: none;}
+form img.icon {top: 0em;}
+table img.icon {padding-bottom: 6px;}
+.number {text-align: right;}
+.information {padding:.8em;margin-bottom:1em;border:2px solid #ddd;}
+.information {background:#E5ECF9;color:#4273AB;border-color:#C3D9FF;}
+.information a {color:#4273AB;}
+.errorExplanation {padding:.8em;margin-bottom:1em;border:2px solid #ddd;}
+.errorExplanation, .errorExplanation * {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
+.column {float:left;margin-right:10px;}
+.last {margin-right:0;}
+p.spaced {padding: .2em 0; margin-bottom: 1px;}
+
+#navigation ul {margin: 0; padding: 0; padding-bottom: 1.5em; float: left;}
+#navigation ul li {float: left; list-style-type: none; font-size: 1.125em;}
+#navigation ul li a {text-decoration: none; padding-left: .5em;}
+#navigation .active {background: #eee;}
+
+.horizontal-menu {margin: 0; padding: 0;}
+.horizontal-menu li {float: left; list-style-type: none; margin: 0; padding: .2em .8em; border-right: 1px solid #ccc; margin-bottom: .8em;}
+.horizontal-menu li.first {padding-left: 0;}
+.horizontal-menu li.last {border-right: none;}
+
+.drop-highlight {background-color: #E5ECF9!important;}
+.grabbable {cursor: move;}
+.fs-item {margin-bottom: 1em;}
+html body .very-quiet {color:#aaa;}
+
+#footer p {text-align: center;}
+
+/* tables */
+.recordset {width: 100%;}
+.recordset th, .recordset td {padding: .5em 1em;}
+.recordset tr.highlight td {background:#ffc;}
+/*th.first, td.first {padding:4px 10px 4px 5px;}
+th.last, td.last {padding-right: 10px;}*/
+tr th.icon, tr td.icon {width: 15px;}
+.recordset th.icon img.icon, .recordset td.icon img.icon {padding-right: 0px; margin-right: -.5em;}
+td.total {font-size: 1.2em;}
+
+/* forms */
+#inline-form {background: #FFF6BF;}
+#inline-form {padding-top: .8em;}
+div.inline label, div.checkbox label, div.radio label {display: inline; padding-right: 1em;}
+html body form .fieldWithErrors input {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
+html body form input.fieldWithErrors {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
+
+.inplaceeditor-form input.editor_field {margin:0.5em 0;border:1px solid #bbb;}
+label {display: block;}
+fieldset {padding:3em 0 1em 0;margin:0 0 1.5em 0; border: none; border-top: 1px solid #ccc; position: relative;}
+div.text {padding-bottom: .5em;}
+select.title {font-size: 1.5em; padding: .25em;}
+legend span {
+  text-transform: uppercase; color: #666; font-weight: normal; font-size: 1.2em;
+  display: block; 
+  position: absolute; 
+}
+fieldset.actions {padding-top: .8em;}
+fieldset.actions legend span {
+  display: none;
+}
+textarea.short {height: 8em;}
+
+#notification {
+  background-color: #ff9;
+  font-weight: bold;
+  font-size: 1.3em;
+  padding: .5em 0;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  /* IE fixed positioning */
+  _position:absolute;
+	left: 0;
+  /* Stick to bottom of viewport */
+  bottom:0;
+  _left: 0; /* ensure it's aligned left */
+  _top: expression(0+((e=document.documentElement.scrollTop)?e:document.body.scrollTop)+document.documentElement.clientHeight-this.clientHeight+'px'); 
+}
+
+.small-badge {float: left;background: url("/images/new_badge_small.png") no-repeat top left; width: 24px; height: 24px; position: absolute; top: -8px; right: -5px; z-index: 1;}
+.folder .folder-name {margin-top: 1.125em;}
+
+
+.monthName th {
+  font-weight: normal;
+  text-align: center;
+}
+
+.dayName th {
+  font-size: 0.7em;
+  background-color: #303030;
+  color: white;
+}
+
+.otherMonth, .day, .specialDay {
+  border-right: 1px solid white;
+}
+
+.otherMonth {
+  color: #eeeeee;
+  background-color: white;
+}
+
+.day, .specialDay {
+  text-align: center;
+  border-bottom: 1px dotted #bbbbbb;
+  background-color: #bbccff;
+}
+.day {padding: .25em 0; margin: 0;}
+.specialDay a, .specialDay a:visited, .specialDay a:hover {
+  color: white;
+  text-decoration: none;
+}
+.specialDay a:hover {
+  color: white;
+  background-color: black;
+}
+.weekendDay {
+  background-color: #ffffdd;
+}
+.today{
+  background-color: #4682b4;
+}
+
+
+
+
+/* =Defaults
+-------------------------------------------------------------- */
+
+a {
+  color: #5e88a2;
+  text-decoration: none;
+}
+a:hover{
+  color: #333;
+}
+
+th.title, td.title { width: 50%; }
+tbody tr td, tbody tr th, thead tr td, thead tr th {border-right: 1px solid #fff;}
+tbody tr td.last, tbody tr th.last, thead tr td.last, thead tr th.last {border-right: none;}
+tfoot tr td, tfoot tr th { border-top: 1px solid #dedede; border-bottom: 1px solid #dedede; background: #fffff4; font-weight: bold; color: #545454;}
+
+td.number, th.number { text-align: right; }
+tr.even td {background:#f3f3f3;}
+tr.odd td {background:#fff;}
+
+td.number .text {margin-right: -6px;}
+
+/* =Forms
+-------------------------------------------------------------- */
+
+fieldset.actions legend { display: none; }
+input[disabled='disabled'] {background: #ececec;}
+label.required, p.required {color: #c00;}
+
+/* =Structure
+-------------------------------------------------------------- */
+
+#header {
+  border-bottom: #dedede 2px solid;
+  padding: 0 0 1.5em;
+  margin: 0 0 1.5em;
+  position: relative;
+}
+
+#extra-content .section {margin-bottom: 4em;}
+#extra-content .section h3 {text-transform: uppercase; font-size: 1em; border-bottom: 1px solid #ddd; padding-bottom: 1em; color: #666;}
+
+/***************************************
+   =Auto Complete
+************************************** */
+
+/* Text input wrappers are relatively pos for autocomplete.
+JS that calulates postion based on relative position doesn't
+work correctly if it uses fieldset with padding in FF3. IE also
+has z-index issue if these are set to relative, so that is reset
+in IE stylesheet. */
+
+div.text{position:relative;}
+div.auto_complete {cursor: default; z-index: 999;}
+
+/* facebox */
+#facebox h3 {font-size: 2em; border: 1px solid #e5e5e5; background: #f0f0f0; padding: .5em;}
+#facebox h4 {font-size: 1.25em; border: 1px solid #e5e5e5; background: #f0f0f0; padding: .5em;}
+#facebox table th, #facebox table td {border-right: 0;}
+html body #facebox table {width: auto;}
+#facebox .background-light {background: #fafafa;}
