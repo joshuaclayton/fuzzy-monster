@@ -11,3 +11,10 @@
     </tbody>
   <% end %>
 <% end %>
+<% extra_content do %>
+  <% section "Add a Forum", @forums.can_be_created_by_current_user? do %>
+    <ul>
+      <%= tab "Add a Forum", new_forum_path %>
+    </ul>
+  <% end %>
+<% end %>

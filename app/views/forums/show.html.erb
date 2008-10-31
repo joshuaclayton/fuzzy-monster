@@ -1,4 +1,8 @@
 <% sub_header do %><%= @forum.name %><% end %>
 <% content :full do %>
+  <p>
+    <%= link_to "Edit", [:edit, @forum] if @forum.can_be_edited_by_current_user? %>
+    <%= link_to "delete", @forum, :method => :delete, :confirm => "Are you sure you want to delete this forum?" if @forum.can_be_deleted_by_current_user? %>
+  </p>
   <%= textilize @forum.description %>
 <% end %>
