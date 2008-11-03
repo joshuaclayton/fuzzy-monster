@@ -1,0 +1,12 @@
+<% sub_header do %>Create a New Topic<% end %>
+<% content do %>
+  <% form_for @topic, :url => [@forum, @topic] do |form| %>
+    <%= form.error_messages %>
+    <% fieldset "Topic Information" do %>
+      <%= render :partial => "topics/form", :locals => {:form => form, :topic => @topic} %>
+    <% end %>
+    <% fieldset "Form Actions", :actions do %>
+      <%= form.submit "Create" %> or <%= cancel_link :back %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -9,13 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081031175124) do
+ActiveRecord::Schema.define(:version => 20081103215946) do
 
   create_table "forums", :force => true do |t|
     t.string  "name"
     t.string  "slug"
     t.text    "description"
-    t.integer "position",    :default => 1
+    t.integer "position",     :default => 1
+    t.integer "topics_count", :default => 0
   end
 
   add_index "forums", ["position"], :name => "index_forums_on_position"
@@ -50,6 +51,27 @@ ActiveRecord::Schema.define(:version => 20081031175124) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "topics", :force => true do |t|
+    t.integer  "forum_id"
+    t.integer  "creator_id"
+    t.string   "title"
+    t.string   "slug"
+    t.boolean  "sticky",          :default => false
+    t.boolean  "locked",          :default => false
+    t.integer  "hits",            :default => 0
+    t.datetime "last_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "topics", ["slug"], :name => "index_topics_on_slug"
+  add_index "topics", ["forum_id"], :name => "index_topics_on_forum_id"
+  add_index "topics", ["sticky"], :name => "index_topics_on_sticky"
+  add_index "topics", ["hits"], :name => "index_topics_on_hits"
+  add_index "topics", ["creator_id"], :name => "index_topics_on_creator_id"
+  add_index "topics", ["last_updated_at", "sticky"], :name => "index_topics_on_last_updated_at_and_sticky"
+  add_index "topics", ["last_updated_at"], :name => "index_topics_on_last_updated_at"
 
   create_table "user_reminders", :force => true do |t|
     t.integer  "user_id"

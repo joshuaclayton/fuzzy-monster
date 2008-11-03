@@ -15,6 +15,10 @@ class ForumPresenter
     false
   end
   
+  def can_topic_be_created_by_current_user?
+    !!(@current_user && @current_user.has_privilege?(:has_account))
+  end
+  
   def method_missing(call, *args)
     @forum.send call, *args
   end

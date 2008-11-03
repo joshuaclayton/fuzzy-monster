@@ -1,6 +1,7 @@
 <% sub_header do %>Create a New Forum<% end %>
 <% content :full do %>
   <% form_for @forum do |form| %>
+    <%= form.error_messages %>
     <% fieldset "Forum Information" do %>
       <%= render :partial => "forums/form", :locals => {:form => form} %>
     <% end %>

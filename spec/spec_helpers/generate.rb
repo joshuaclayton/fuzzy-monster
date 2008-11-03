@@ -36,4 +36,14 @@ class Generate
     user.save!
     user
   end
+  
+  def self.topic(attributes = {})
+    topic = Topic.new(attributes.reverse_merge({
+      :forum => Generate.forum,
+      :creator => Generate.user,
+      :title => "Random Title"
+    }))
+    topic.save!
+    topic
+  end
 end

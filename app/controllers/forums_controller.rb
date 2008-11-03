@@ -14,7 +14,7 @@ class ForumsController < ApplicationController
   end
   
   index.wants.xml { render :xml => @forums }
-  show.wants.xml { render :xml => @forum }
+  show.wants.xml  { render :xml => @forum }
   
   private
   

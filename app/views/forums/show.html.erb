@@ -3,6 +3,8 @@
   <p>
     <%= link_to "Edit", [:edit, @forum] if @forum.can_be_edited_by_current_user? %>
     <%= link_to "delete", @forum, :method => :delete, :confirm => "Are you sure you want to delete this forum?" if @forum.can_be_deleted_by_current_user? %>
+    <%= link_to "Post new topic", new_forum_topic_path(@forum) %>
   </p>
   <%= textilize @forum.description %>
+  <%= render :partial => "topics/recordset", :locals => {:forum => @forum, :topics => @forum.topics} %>
 <% end %>

@@ -23,6 +23,14 @@ describe ForumPresenter do
     @forum_presenter.can_be_deleted_by_current_user?.should eql(false)
   end
   
+  it "should know if current user can create a new topic" do
+    @forum_presenter.can_topic_be_created_by_current_user?.should eql(true)
+    @forum_presenter.instance_variable_set(:@current_user, Generate.admin_user)
+    @forum_presenter.can_topic_be_created_by_current_user?.should eql(true)
+    @forum_presenter.instance_variable_set(:@current_user, nil)
+    @forum_presenter.can_topic_be_created_by_current_user?.should eql(false)
+  end
+  
   it "should delegate with method_missing to forum" do
     @forum_presenter.instance_variable_get(:@forum).should_receive(:name).and_return("Test Forum")
     @forum_presenter.name.should eql("Test Forum")

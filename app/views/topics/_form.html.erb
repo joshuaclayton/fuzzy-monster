@@ -1,0 +1,16 @@
+<% set do %>
+  <%= form.label :title %>
+  <%= form.text_field :title, :class => "title" %>
+<% end %>
+<% if topic.can_be_stickied_by_current_user? %>
+  <% set :checkbox do %>
+    <%= form.label :sticky, "Sticky?" %>
+    <%= form.check_box :sticky %>
+  <% end %>
+<% end %>
+<% if topic.can_be_locked_by_current_user? %>
+  <% set :checkbox do %>
+    <%= form.label :locked, "Locked?" %>
+    <%= form.check_box :locked %>
+  <% end %>
+<% end %>

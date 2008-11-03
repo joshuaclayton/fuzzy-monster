@@ -1,0 +1,11 @@
+<% recordset(:headers => ["Topic", "Views", "Posts"]) do %>
+  <tbody>
+    <% topics.each do |topic| %>
+      <% zebra_row do %>
+        <td><%= link_to topic.title, [forum, topic] %></td>
+        <td><%= topic.hits %></td>
+        <td></td>
+      <% end %>
+    <% end %>
+  </tbody>
+<% end %>

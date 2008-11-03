@@ -14,9 +14,6 @@
       <a href="#content" class="hide">Skip to Content</a>
       <% column :full, :id => 'header' do %>
         <h1 id="brand-logo"><%= @page_title.compact[0..1].join(" &#187; ") %></h1>
-        <div id="nav-user">
-        <%= render :partial => 'layouts/logged_in_info'%>
-        </div>
         <hr class="hide"/>
         <%= render :partial => "layouts/navigation" %>
       <% end %>
