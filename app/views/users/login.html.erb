@@ -3,13 +3,13 @@
     <% fieldset "Log In" do %>
       <% set do %>
         <%= form.label :email_address %>
-        <%= form.text_field :email_address %>
+        <%= form.text_field :email_address, :class => "title" %>
       <% end %>
       <% set do %>
         <%= form.label :password %>
-        <%= form.password_field :password %>
+        <%= form.password_field :password, :class => "title" %>
       <% end %>
-      <% set :check_box do %>
+      <% set :checkbox do %>
         <%= form.label :remember_me %>
         <%= check_box_tag :remember_me %>
       <% end %>

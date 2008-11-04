@@ -2,7 +2,7 @@
   <tbody>
     <% topics.each do |topic| %>
       <% zebra_row do %>
-        <td><%= link_to topic.title, [forum, topic] %></td>
+        <td<%= " class='sticky'" if topic.sticky? %>><%= "Sticky: " if topic.sticky? %><%= link_to topic.title, [forum, topic] %></td>
         <td><%= topic.hits %></td>
         <td></td>
       <% end %>

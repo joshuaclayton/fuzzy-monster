@@ -10,23 +10,37 @@
     <![endif]-->
   </head>
   <body>
-    <% container :class => "container", :id => "container" do %>
-      <a href="#content" class="hide">Skip to Content</a>
-      <% column :full, :id => 'header' do %>
-        <h1 id="brand-logo"><%= @page_title.compact[0..1].join(" &#187; ") %></h1>
-        <hr class="hide"/>
-        <%= render :partial => "layouts/navigation" %>
+    <a href="#content" class="hide">Skip to Content</a>
+    <div class="head-wrapper">
+      <% container do %>
+        <% column :full, :id => 'header' do %>
+          <% column :three_fourths do %>
+            <h1><%= @page_title.compact[0..1].join(" &#187; ") %></h1>
+          <% end %>
+          <% column :one_fourth, :last do %>
+            <%= render :partial => "layouts/navigation" %>
+          <% end %>
+        <% end %>
       <% end %>
-        <hr class="hide"/>
-      
-      <%= render :partial => 'layouts/content_wrapper' %>
-      <hr/>
-      <% column :full, :id => "footer" do %>
-        <p>&copy;<%= @copyright_year %> <%= ApplicationController::APPLICATION_NAME %></p>
+    </div>
+    <div class="body-wrapper">
+      <% container :class => "container" do %>
+        <% if @breadcrumbs %>
+          <ul class="breadcrumbs">
+          <% @breadcrumbs.each do |crumb| %>
+            <li><%= crumb %></li>
+          <% end %>
+          </ul>
+          <hr class="space"/>
+        <% end %>
+        <%= render :partial => 'layouts/content_wrapper' %>
+        <hr/>
+        <% column :full, :id => "footer" do %>
+          <p>&copy;<%= @copyright_year %> <%= ApplicationController::APPLICATION_NAME %></p>
+        <% end %>
+        <a href="#container" class="hide">Return to Top</a>
       <% end %>
-      <a href="#container" class="hide">Return to Top</a>
-      
-    <% end %>
+    </div>
     <div id="notification" style="display: none;"><%= image_tag("ajax-loader.gif") %> Waiting...</div>
     <%= javascript_include_tag "jquery", "jrails" %>
 

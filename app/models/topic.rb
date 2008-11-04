@@ -2,6 +2,7 @@ class Topic < ActiveRecord::Base
   has_permalink :title, :slug, :scope => :forum_id
   
   named_scope :sticky, { :conditions => {:sticky => true} }
+  named_scope :not_sticky, { :conditions => {:sticky => false}}
   
   belongs_to :forum, :counter_cache => true
   belongs_to :creator, :class_name => "User", :foreign_key => :creator_id

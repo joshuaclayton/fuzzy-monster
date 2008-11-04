@@ -1,6 +1,6 @@
+<% @breadcrumbs = breadcrumbs(:topic => @topic) %>
 <% sub_header do %><%= @topic.title %><% end %>
 <% content do %>
-  
 <% end %>
 <% extra_content do %>
   <%= link_to "Edit", [:edit, @forum, @topic] if @topic.can_be_edited_by_current_user? %>
