@@ -1,0 +1,9 @@
+<% if posts.any? %>
+  <ul>
+    <% posts.each do |post| %>
+      <% content_tag(:li, :id => dom_id(post)) do %>
+        <%= textilize(post.body) %>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>

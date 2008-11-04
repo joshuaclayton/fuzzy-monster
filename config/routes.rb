@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :forums do |forums_map|
-    forums_map.resources :topics
+    forums_map.resources :topics do |topics_map|
+      topics_map.resources :posts
+    end
   end
 
   map.root :controller => "home"

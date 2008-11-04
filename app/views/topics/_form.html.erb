@@ -14,3 +14,9 @@
     <%= form.check_box :locked %>
   <% end %>
 <% end %>
+<% if topic.new_record? %>
+  <% set do %>
+    <%= form.label :body %>
+    <%= form.text_area :body, :class => "short" %>
+  <% end %>
+<% end %>

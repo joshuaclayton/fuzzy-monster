@@ -13,4 +13,6 @@ Rails::Initializer.run do |config|
                             #{RAILS_ROOT}/app/presenters )
   
   config.action_controller.session_store = :active_record_store
+
+  config.active_record.observers = :post_observer
 end

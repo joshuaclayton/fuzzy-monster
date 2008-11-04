@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081103215946) do
+ActiveRecord::Schema.define(:version => 20081104202327) do
 
   create_table "forums", :force => true do |t|
     t.string  "name"
@@ -17,10 +17,24 @@ ActiveRecord::Schema.define(:version => 20081103215946) do
     t.text    "description"
     t.integer "position",     :default => 1
     t.integer "topics_count", :default => 0
+    t.integer "posts_count",  :default => 0
   end
 
   add_index "forums", ["position"], :name => "index_forums_on_position"
   add_index "forums", ["slug"], :name => "index_forums_on_slug"
+
+  create_table "posts", :force => true do |t|
+    t.integer  "author_id"
+    t.integer  "topic_id"
+    t.integer  "forum_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "posts", ["created_at", "forum_id"], :name => "index_posts_on_created_at_and_forum_id"
+  add_index "posts", ["created_at", "topic_id"], :name => "index_posts_on_created_at_and_topic_id"
+  add_index "posts", ["created_at", "author_id"], :name => "index_posts_on_created_at_and_author_id"
 
   create_table "privileges", :force => true do |t|
     t.string "name"
@@ -63,6 +77,9 @@ ActiveRecord::Schema.define(:version => 20081103215946) do
     t.datetime "last_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "posts_count",     :default => 0
+    t.integer  "last_post_id"
+    t.integer  "last_user_id"
   end
 
   add_index "topics", ["slug"], :name => "index_topics_on_slug"
@@ -92,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20081103215946) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username"
+    t.integer  "posts_count",                  :default => 0
   end
 
   add_index "users", ["role_id"], :name => "index_users_on_role_id"
