@@ -1,22 +1,26 @@
 <% set do %>
   <%= form.label :title %>
-  <%= form.text_field :title, :class => "title" %>
+  <%= form.text_field :title, :class => "#{half} title" %>
+<% end %>
+<% if topic.new_record? %>
+  <% set do %>
+    <%= form.label :body, "Post" %>
+    <%= form.text_area :body, :class => "#{half}" %>
+  <% end %>
 <% end %>
 <% if topic.can_be_stickied_by_current_user? %>
-  <% set :checkbox do %>
-    <%= form.label :sticky, "Sticky?" %>
-    <%= form.check_box :sticky %>
+  <% column :one_eigth do %>
+    <% set :checkbox do %>
+      <%= form.label :sticky, "Sticky?" %>
+      <%= form.check_box :sticky %>
+    <% end %>
   <% end %>
 <% end %>
 <% if topic.can_be_locked_by_current_user? %>
+  <% column :one_eigth do %>
   <% set :checkbox do %>
     <%= form.label :locked, "Locked?" %>
     <%= form.check_box :locked %>
   <% end %>
-<% end %>
-<% if topic.new_record? %>
-  <% set do %>
-    <%= form.label :body %>
-    <%= form.text_area :body, :class => "short" %>
   <% end %>
 <% end %>

@@ -12,12 +12,11 @@ module Fusionary
       end
 
       def inline_form(&block)
-        content_builder(:inline_form, :eleven_twelfths, prepend_one_twentyfourth(), :last, :id => 'inline-form', &block)
+        content_builder(:inline_form, :eleven_twelfths, prepend_one_twentyfourth, append_one_twentyfourth, :last, :id => 'inline-form', &block)
       end
       
       def sub_header(&block)
-        subhead = content_for(:sub_header, capture(&block))
-        concat(yield(:sub_header))
+        content_for(:sub_header, capture(&block))
       end
       
       alias :subheader :sub_header
@@ -28,13 +27,11 @@ module Fusionary
         options = args.extract_options!
         size = args.shift || :full
 
-        section = content_for area do 
+        content_for area do 
           column size, *[args, options].flatten do
             capture(&block)
           end
         end
-
-        concat(yield(area))
       end
     end
   end

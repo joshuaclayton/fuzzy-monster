@@ -1,5 +1,5 @@
 <% sub_header do %>Create a New Topic<% end %>
-<% content do %>
+<% content :full do %>
   <% form_for @topic, :url => [@forum, @topic] do |form| %>
     <%= form.error_messages %>
     <% fieldset "Topic Information" do %>

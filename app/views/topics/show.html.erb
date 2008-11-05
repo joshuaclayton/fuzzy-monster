@@ -1,12 +1,15 @@
 <% @breadcrumbs = breadcrumbs(:topic => @topic) %>
 <% sub_header do %><%= @topic.title %><% end %>
 <% inline_form do %>
-  <% remote_form_for [@topic, Post.new] do |form| %>
-    <%= form.text_area :body, :class => "short" %>
-    <%= form.submit "Post a Reply" %>
+  <% remote_form_for [@forum, @topic, Post.new], :html => {:style => "display: none;"} do |form| %>
+    <%= render :partial => "posts/form", :locals => {:form => form} %>
+    <% fieldset "Form Actions", :actions do %>
+      <%= form.submit "Post Your Reply" %> or <%= link_to_function "cancel", "$('#new_post').slideToggle('fast', function() {this.reset();})" %>
+    <% end %>
   <% end %>
 <% end %>
 <% content do %>
+  <%= link_to_function "Add Reply", "$('#new_post').slideToggle('fast')" %>
   <%= render :partial => "posts/recordset", :locals => {:posts => @topic.posts} %>
 <% end %>
 <% extra_content do %>

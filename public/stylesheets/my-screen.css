@@ -47,7 +47,7 @@ td.total {font-size: 1.2em;}
 
 /* forms */
 #inline-form {background: #FFF6BF;}
-#inline-form {padding-top: .8em;}
+#inline-form form {padding-top: .8em;}
 div.inline label, div.checkbox label, div.radio label {display: inline; padding-right: 1em;}
 html body form .fieldWithErrors input {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
 html body form input.fieldWithErrors {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
