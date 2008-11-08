@@ -1,17 +1,28 @@
 <% @breadcrumbs = breadcrumbs(:topic => @topic) %>
 <% sub_header do %><%= @topic.title %><% end %>
-<% inline_form do %>
-  <% remote_form_for [@forum, @topic, Post.new], :html => {:style => "display: none;"} do |form| %>
-    <%= render :partial => "posts/form", :locals => {:form => form} %>
-    <% fieldset "Form Actions", :actions do %>
-      <%= form.submit "Post Your Reply" %> or <%= link_to_function "cancel", "$('#new_post').slideToggle('fast', function() {this.reset();})" %>
-    <% end %>
-  <% end %>
-<% end %>
-<% content do %>
-  <%= link_to_function "Add Reply", "$('#new_post').slideToggle('fast')" %>
+<% content :full do %>
   <%= render :partial => "posts/recordset", :locals => {:posts => @topic.posts} %>
 <% end %>
-<% extra_content do %>
-  <%= link_to "Edit", [:edit, @forum, @topic] if @topic.can_be_edited_by_current_user? %>
+
+<% content_for :footer do %>
+  <style type="text/css">
+    body {padding-bottom: 3em;}
+    #slider {position: fixed; bottom: 0; background: #eee; border-top: 1px solid #ccc; padding: 0;}
+    #slider a { padding: 1em 1em 1em 1em; display: block;}
+    #slider a:hover {background: #ccc;}
+    #new_post {display: none;}
+  </style>
+  <div class="container">
+    <div id="slider">
+      <% column :full do %>
+        <p class="spaced"><a href="#" onclick="$('#new_post').slideToggle('fast'); return false;">Post a Reply</a></p>
+        <% form_for [@forum, @topic, Post.new] do |form| %>
+          <%= render :partial => "posts/form", :locals => {:form => form} %>
+          <% fieldset "Form Actions", :actions do %>
+            <%= form.submit "Post Your Reply" %> or <%= link_to_function "cancel", "$('#new_post').slideToggle('fast', function() {this.reset();})" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 <% end %>

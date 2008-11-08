@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   acts_as_login_model
+  is_gravtastic :with => :email_address
   
   has_many :posts, :foreign_key => :author_id
   has_many :topics, :foreign_key => :creator_id

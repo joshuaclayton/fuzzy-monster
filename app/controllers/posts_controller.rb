@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   
   create.before     { object.author = current_user }
   create.wants.html { redirect_to [parent_object.forum, parent_object] }
+  create.flash      { "Thanks for replying to #{parent_object.title}!" }
   
   private
   

@@ -9,7 +9,7 @@
   <% end %>
 <% end %>
 <% if topic.can_be_stickied_by_current_user? %>
-  <% column :one_eigth do %>
+  <% column :one_sixth do %>
     <% set :checkbox do %>
       <%= form.label :sticky, "Sticky?" %>
       <%= form.check_box :sticky %>
@@ -17,10 +17,10 @@
   <% end %>
 <% end %>
 <% if topic.can_be_locked_by_current_user? %>
-  <% column :one_eigth do %>
-  <% set :checkbox do %>
-    <%= form.label :locked, "Locked?" %>
-    <%= form.check_box :locked %>
-  <% end %>
+  <% column :one_sixth do %>
+    <% set :checkbox do %>
+      <%= form.label :locked, "Locked?" %>
+      <%= form.check_box :locked %>
+    <% end %>
   <% end %>
 <% end %>

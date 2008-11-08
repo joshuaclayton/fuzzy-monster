@@ -19,6 +19,10 @@ class TopicPresenter
     is_current_user_admin?
   end
   
+  def can_be_replied_by_current_user?
+    !@topic.locked? && @current_user
+  end
+  
   def method_missing(call, *args)
     @topic.send call, *args
   end

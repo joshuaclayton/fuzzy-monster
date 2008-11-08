@@ -1,9 +1,31 @@
 <% if posts.any? %>
-  <ul>
-    <% posts.each do |post| %>
-      <% content_tag(:li, :id => dom_id(post)) do %>
-        <%= textilize(post.body) %>
+  <table class="posts">
+    <col style="width: 20%;" />
+    <col style="width: 80%;" />
+    <tbody>
+      <% posts.each do |post| %>
+        <% content_tag(:tr, :id => dom_id(post)) do %>
+          <td>
+            <p class="spaced loud timestamp">
+              <strong><%= distance_of_time_in_words_to_now(post.created_at) %> ago</strong>
+            </p>
+            <% column 2 do %>
+              <%= image_tag post.author.gravatar_url :size => 60 %>
+            <% end %>
+            <% column 2 do %>
+              <strong><%= post.author.full_name %></strong><br/>
+              <span class="small quiet">
+                <%= "<strong>Administrator</strong>" if current_user.has_privilege?(:admin) %><br/>
+                <%= pluralize post.author.posts_count, 'post' %>
+              </span>
+            <% end %>
+            
+          </td>
+          <td>
+            <%= textilize(post.body) %>
+          </td>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
+    </tbody>
+  </table>
 <% end %>

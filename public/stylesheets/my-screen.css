@@ -21,9 +21,11 @@ p.spaced {padding: .2em 0; margin-bottom: 1px;}
 #navigation ul li {float: left; list-style-type: none; padding-right: 1em;}
 #navigation ul li a { }
 
-.breadcrumbs {margin: 0; padding: 0; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; float: left; clear: both; width: 100%;}
-.breadcrumbs li {font-weight: 500; float: left; margin: 0; padding: .65em 1em; border-left: 1px solid #ccc; list-style-type: none;}
+.breadcrumbs {margin: 0; padding: 0; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; float: left; clear: both; width: 100%; background: #f8f8f8 url('/images/breadcrumb-bkg.gif') repeat-x top left;}
+.breadcrumbs li {font-weight: 500; float: left; margin: 0; padding: .65em 1em; border-right: 1px solid #ccc; border-left: 1px solid #fff; list-style-type: none;}
 .breadcrumbs li:first-child {border-left: none;}
+.breadcrumbs li:last-child {border-right: none;}
+
 .horizontal-menu {margin: 0; padding: 0;}
 .horizontal-menu li {float: left; list-style-type: none; margin: 0; padding: .2em .8em; border-right: 1px solid #ccc; margin-bottom: .8em;}
 .horizontal-menu li.first {padding-left: 0;}
@@ -39,8 +41,6 @@ html body .very-quiet {color:#aaa;}
 .recordset {width: 100%;}
 .recordset th, .recordset td {padding: .5em 1em;}
 .recordset tr.highlight td {background:#ffc;}
-/*th.first, td.first {padding:4px 10px 4px 5px;}
-th.last, td.last {padding-right: 10px;}*/
 tr th.icon, tr td.icon {width: 15px;}
 .recordset th.icon img.icon, .recordset td.icon img.icon {padding-right: 0px; margin-right: -.5em;}
 td.total {font-size: 1.2em;}
@@ -85,8 +85,6 @@ textarea.short {height: 8em;}
   _top: expression(0+((e=document.documentElement.scrollTop)?e:document.body.scrollTop)+document.documentElement.clientHeight-this.clientHeight+'px'); 
 }
 
-.small-badge {float: left;background: url("/images/new_badge_small.png") no-repeat top left; width: 24px; height: 24px; position: absolute; top: -8px; right: -5px; z-index: 1;}
-.folder .folder-name {margin-top: 1.125em;}
 /* =Defaults
 -------------------------------------------------------------- */
 
@@ -137,3 +135,8 @@ div.auto_complete {cursor: default; z-index: 999;}
 #facebox table th, #facebox table td {border-right: 0;}
 html body #facebox table {width: auto;}
 #facebox .background-light {background: #fafafa;}
+.posts {border-collapse: collapse;}
+.posts td {vertical-align: top;}
+.posts td {border-bottom: 1px solid #ccc; padding: .5em 1em;}
+.posts tr td:first-child {background: #eee;}
+.posts .timestamp {text-transform: uppercase;}
