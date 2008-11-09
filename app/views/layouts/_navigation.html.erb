@@ -3,7 +3,7 @@
     <%= tab "Forums", forums_path %>
     <% if current_user %>
       <%= tab current_user.full_name, profile_path %>
-      <%= tab "Logout", logout_path %></li>
+      <%= tab "Logout", logout_path %>
     <% else %>
       <%= tab "Log in here", login_path %>
     <% end %>

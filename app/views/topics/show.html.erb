@@ -6,23 +6,55 @@
 
 <% content_for :footer do %>
   <style type="text/css">
-    body {padding-bottom: 3em;}
-    #slider {position: fixed; bottom: 0; background: #eee; border-top: 1px solid #ccc; padding: 0;}
-    #slider a { padding: 1em 1em 1em 1em; display: block;}
-    #slider a:hover {background: #ccc;}
-    #new_post {display: none;}
+    body {padding-bottom: 1.75em;}
+    #slide-wrapper {position: fixed; bottom: 0; width: 100%;}
+    #slide-wrapper p.response {text-align: center;}
+    #slide-wrapper p.response a {display: block; padding: .25em 0;}
+    #slide-wrapper .form-wrapper {background: #fff;}
+    #slide-wrapper .form-wrapper p {margin-bottom: 0; padding: .5em;}
+    #form-wrapper {background: #c5af75; float: left; width: 100%; border-top: 1px solid #555; display:none;}
+    #form-wrapper, #form-wrapper a {color: #413121;}
+    #slide-wrapper .reflective {border-top: 1px solid #aaa;}
   </style>
-  <div class="container">
-    <div id="slider">
-      <% column :full do %>
-        <p class="spaced"><a href="#" onclick="$('#new_post').slideToggle('fast'); return false;">Post a Reply</a></p>
-        <% form_for [@forum, @topic, Post.new] do |form| %>
-          <%= render :partial => "posts/form", :locals => {:form => form} %>
-          <% fieldset "Form Actions", :actions do %>
-            <%= form.submit "Post Your Reply" %> or <%= link_to_function "cancel", "$('#new_post').slideToggle('fast', function() {this.reset();})" %>
+  
+  <div id="slide-wrapper">
+    <div style="background: transparent url('/images/grad-small.png') repeat-x bottom left; height: 40px;"></div>
+    <div class="form-wrapper">
+      <div class="reflective">
+        <% container do %>
+          <% column :full do %>
+          <p class="response">
+            <a href="#" onclick="$('#form-wrapper').slideToggle('fast'); return false;">Have Something to Say in Response?</a>
+          </p>
           <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <div id="form-wrapper">
+        <% container do %>
+          <% column :eleven_twelfths, prepend_one_twentyfourth, append_one_twentyfourth, :last do %>
+            <% form_for [@forum, @topic, Post.new] do |form| %>
+              <br/>
+              <% column 14 do %>
+                <%= render :partial => "posts/form", :locals => {:form => form} %>
+              <% end %>
+              <% column 8, :last do %>
+                <% section "Formatting Help" do %>
+                  <ul class="help">
+                    <li>*bold*</li>
+                    <li>_italics_</li>
+                    <li>bq. (quotes)</li>
+                    <li>"Google":http://www.google.com</li>
+                    <li>* or # (lists)</li>
+                  </ul>
+                <% end %>
+              <% end %>
+              <% fieldset "Form Actions", :actions do %>
+                <%= form.submit "Post Your Reply" %> or <%= link_to_function "forget about it", "$('#form-wrapper').slideToggle('fast', function() {$(this).find('form').reset();})" %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>

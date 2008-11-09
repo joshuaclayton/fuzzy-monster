@@ -1,25 +1,24 @@
 <% if posts.any? %>
   <table class="posts">
-    <col style="width: 20%;" />
-    <col style="width: 80%;" />
+    <col style="width: 28%;" />
+    <col style="width: 72%;" />
     <tbody>
       <% posts.each do |post| %>
         <% content_tag(:tr, :id => dom_id(post)) do %>
           <td>
-            <p class="spaced loud timestamp">
+            <p class="spaced quiet timestamp created-at">
               <strong><%= distance_of_time_in_words_to_now(post.created_at) %> ago</strong>
             </p>
-            <% column 2 do %>
-              <%= image_tag post.author.gravatar_url :size => 60 %>
+            <% column 2, :image do %>
+              <%= image_tag post.author.gravatar_url :size => 72 %>
             <% end %>
-            <% column 2 do %>
-              <strong><%= post.author.full_name %></strong><br/>
-              <span class="small quiet">
-                <%= "<strong>Administrator</strong>" if current_user.has_privilege?(:admin) %><br/>
+            <% column 4, :quieter do %>
+              <strong class="author quiet"><%= post.author.full_name %></strong>
+              <span class="post-info">
+                <%= "<strong>Administrator</strong><br/>" if post.author.has_privilege?(:admin) %>
                 <%= pluralize post.author.posts_count, 'post' %>
               </span>
             <% end %>
-            
           </td>
           <td>
             <%= textilize(post.body) %>

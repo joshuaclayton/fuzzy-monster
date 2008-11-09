@@ -3,6 +3,8 @@ body p img {margin: 0;}
 img.icon {padding-right: 5px; position: relative; top: .3em; float: none;}
 form img.icon {top: 0em;}
 table img.icon {padding-bottom: 6px;}
+
+blockquote {padding: .75em 3.5em; margin: 0; background: transparent url('/images/quote.png') no-repeat 0px 0px;}
 .number {text-align: right;}
 .information {padding:.8em;margin-bottom:1em;border:2px solid #ddd;}
 .information {background:#E5ECF9;color:#4273AB;border-color:#C3D9FF;}
@@ -11,18 +13,21 @@ table img.icon {padding-bottom: 6px;}
 .errorExplanation, .errorExplanation * {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
 .column {float:left;margin-right:10px;}
 .last {margin-right:0;}
+.quieter {color: #999;}
 p.spaced {padding: .2em 0; margin-bottom: 1px;}
 
 .head-wrapper {background: #c5af75; border-bottom: 1px solid #a69363; border-top: 1px solid #a69363;}
 .body-wrapper {border-top: 1px solid #fff5da; padding-top: 1.25em;}
-#header {padding-top: 2em;}
+#header {padding-top: 1.5em;}
 #header h1 {color: #413121; font-weight: 500; text-shadow: 2px 2px 4px #413121;}
 #navigation ul {margin: .75em 0 0 0; padding: 0;}
 #navigation ul li {float: left; list-style-type: none; padding-right: 1em;}
 #navigation ul li a { }
 
-.breadcrumbs {margin: 0; padding: 0; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; float: left; clear: both; width: 100%; background: #f8f8f8 url('/images/breadcrumb-bkg.gif') repeat-x top left;}
-.breadcrumbs li {font-weight: 500; float: left; margin: 0; padding: .65em 1em; border-right: 1px solid #ccc; border-left: 1px solid #fff; list-style-type: none;}
+.reflective {font-weight: 500; background: #f0f0f0 url('/images/breadcrumb-bkg.gif') repeat-x top left!important;}
+
+.breadcrumbs {margin: 0; padding: 0; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; float: left; clear: both; width: 100%;}
+.breadcrumbs li {float: left; margin: 0; padding: .65em 1em; border-right: 1px solid #ccc; border-left: 1px solid #fff; list-style-type: none;}
 .breadcrumbs li:first-child {border-left: none;}
 .breadcrumbs li:last-child {border-right: none;}
 
@@ -98,8 +103,8 @@ tbody tr td.last, tbody tr th.last, thead tr td.last, thead tr th.last {border-r
 tfoot tr td, tfoot tr th { border-top: 1px solid #dedede; border-bottom: 1px solid #dedede; background: #fffff4; font-weight: bold; color: #545454;}
 
 td.number, th.number { text-align: right; }
-tr.even td {background:#f5f5f5;}
-tr.odd td {background:#fff;}
+tr.even td {background:#f5f5f5; border-bottom: 1px solid #ddd; border-top: 1px solid #fff;}
+tr.odd td {background:#fff; border-bottom: 1px solid #eee;}
 
 td.number .text {margin-right: -6px;}
 td.sticky {font-weight: bold;}
@@ -135,8 +140,12 @@ div.auto_complete {cursor: default; z-index: 999;}
 #facebox table th, #facebox table td {border-right: 0;}
 html body #facebox table {width: auto;}
 #facebox .background-light {background: #fafafa;}
-.posts {border-collapse: collapse;}
+.posts {border-top: 1px solid #ccc;}
 .posts td {vertical-align: top;}
-.posts td {border-bottom: 1px solid #ccc; padding: .5em 1em;}
-.posts tr td:first-child {background: #eee;}
+.posts td {border-bottom: 1px solid #ccc; border-top: 1px solid #fff; padding: .5em 1em;}
+.posts tr td:first-child {background: #eee; border-right: 1px solid #e5e5e5;}
+.posts tr td:last-child {background: #f5f5f5;}
 .posts .timestamp {text-transform: uppercase;}
+.posts td .created-at {padding-bottom: .5em; border-bottom: 1px solid #ccc; margin-bottom: 1.25em; color: #999; text-align: center;}
+.posts td .author {display: block; font-size: 1.5em; text-shadow: 2px 2px 2px #bbb;}
+.posts td .post-info {padding-top: .25em; display: block;}
