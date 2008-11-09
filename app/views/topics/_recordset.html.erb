@@ -2,7 +2,12 @@
   <tbody>
     <% topics.each do |topic| %>
       <% zebra_row do %>
-        <td<%= " class='sticky'" if topic.sticky? %>><%= "Sticky: " if topic.sticky? %><%= link_to topic.title, [forum, topic] %></td>
+        <td<%= " class='sticky'" if topic.sticky? %>>
+          <%= image_tag topic.creator.gravatar_url(:size => 32), :style => "float:left; padding-right: 1em; padding-top: .125em;"  %>
+          <%= "Sticky: " if topic.sticky? %>
+          <%= link_to topic.title, [forum, topic] %><br/>
+          <span class="quiet small" style="font-weight: normal;"><%= topic.creator.full_name %></span>
+        </td>
         <td><%= topic.hits %></td>
         <td><%= topic.posts_count %></td>
         <td><%= distance_of_time_in_words_to_now(topic.last_updated_at) %> ago by <%= topic.last_user.full_name %> (<%= link_to "view", polymorphic_path([topic.forum, topic], :anchor => dom_id(topic.last_post)) %>)</td>

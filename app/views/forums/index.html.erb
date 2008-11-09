@@ -1,11 +1,15 @@
 <% sub_header do %>Forums<% end %>
 <% content do %>
-  <% recordset :headers => ["Forum", "Information"] do %>
+  <% recordset :headers => ["Forum", ["Topics", {:class => "number"}], ["Posts", {:class => "number"}]], :table => {:class => "forums"} do %>
     <tbody>
       <% @forums.each do |forum| %>
         <% zebra_row do %>
-          <td><%= link_to forum.name, forum %></td>
-          <td></td>
+          <td>
+            <span class="forum-title"><%= link_to forum.name, forum %></span><br/>
+            <%= textilize forum.description %>
+          </td>
+          <td class="number"><%= forum.topics_count %></td>
+          <td class="number"><%= forum.posts_count %></td>
         <% end %>
       <% end %>
     </tbody>

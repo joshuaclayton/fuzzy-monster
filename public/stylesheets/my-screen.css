@@ -27,7 +27,7 @@ p.spaced {padding: .2em 0; margin-bottom: 1px;}
 .reflective {font-weight: 500; background: #f0f0f0 url('/images/breadcrumb-bkg.gif') repeat-x top left!important;}
 
 .breadcrumbs {margin: 0; padding: 0; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; float: left; clear: both; width: 100%;}
-.breadcrumbs li {float: left; margin: 0; padding: .65em 1em; border-right: 1px solid #ccc; border-left: 1px solid #fff; list-style-type: none;}
+.breadcrumbs li {float: left; margin: 0; padding: .65em 1em; border-right: 1px solid #ccc; border-left: 1px solid #fff; list-style-type: none; text-shadow: 1px 1px 1px #aaa;}
 .breadcrumbs li:first-child {border-left: none;}
 .breadcrumbs li:last-child {border-right: none;}
 
@@ -148,4 +148,5 @@ html body #facebox table {width: auto;}
 .posts .timestamp {text-transform: uppercase;}
 .posts td .created-at {padding-bottom: .5em; border-bottom: 1px solid #ccc; margin-bottom: 1.25em; color: #999; text-align: center;}
 .posts td .author {display: block; font-size: 1.5em; text-shadow: 2px 2px 2px #bbb;}
-.posts td .post-info {padding-top: .25em; display: block;}
+.posts td .post-info {padding-top: .25em; display: block; text-shadow: 1px 1px 1px #fff;}
+.forums td .forum-title { font-size: 1.5em; letter-spacing: .06125em; font-weight: 500;}

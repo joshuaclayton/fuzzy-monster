@@ -10,7 +10,9 @@
               <strong><%= distance_of_time_in_words_to_now(post.created_at) %> ago</strong>
             </p>
             <% column 2, :image do %>
-              <%= image_tag post.author.gravatar_url :size => 72 %>
+              <div style="width: 72px; height: 72px; padding-bottom: .75em">
+                <%= image_tag post.author.gravatar_url :size => 72 %>
+              </div>
             <% end %>
             <% column 4, :quieter do %>
               <strong class="author quiet"><%= post.author.full_name %></strong>
