@@ -1,4 +1,4 @@
-h1. Demo Application in Rails
+h1. Fuzzy Monster
 
 This is a demo application for a handful of features and ideas I'm currently working on, as well as any odd plugins I want to test out.
 
