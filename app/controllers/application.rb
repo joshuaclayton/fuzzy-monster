@@ -7,12 +7,16 @@ class ApplicationController < ActionController::Base
   
   filter_parameter_logging :password
   
-  before_filter :manage_page
+  before_filter :manage_page, :set_time_zone
   
   protected
   
   def manage_page
     @page_title = [ApplicationController::APPLICATION_NAME]
     @copyright_year = [2008, Time.now.year].uniq.join(" - ")
+  end
+  
+  def set_time_zone
+    Time.zone = current_user.time_zone if current_user
   end
 end

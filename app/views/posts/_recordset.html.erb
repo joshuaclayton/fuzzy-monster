@@ -7,7 +7,7 @@
         <% content_tag(:tr, :id => dom_id(post)) do %>
           <td>
             <p class="spaced quiet timestamp created-at">
-              <strong><%= distance_of_time_in_words_to_now(post.created_at) %> ago</strong>
+              <strong><%= post.created_at < 1.day.ago ? post.created_at.to_s(:long) : "#{distance_of_time_in_words_to_now(post.created_at)} ago" %></strong>
             </p>
             <% column 2, :image do %>
               <div style="width: 72px; height: 72px; padding-bottom: .75em">

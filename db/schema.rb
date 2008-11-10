@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081104202327) do
+ActiveRecord::Schema.define(:version => 20081110231626) do
 
   create_table "forums", :force => true do |t|
     t.string  "name"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20081104202327) do
     t.string   "last_name"
     t.string   "username"
     t.integer  "posts_count",                  :default => 0
+    t.string   "time_zone"
   end
 
   add_index "users", ["role_id"], :name => "index_users_on_role_id"

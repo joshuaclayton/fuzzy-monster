@@ -17,4 +17,6 @@ Rails::Initializer.run do |config|
   config.action_controller.session_store = :active_record_store
 
   config.active_record.observers = :post_observer
+  
+  config.time_zone = "UTC"
 end
