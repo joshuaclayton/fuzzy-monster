@@ -149,4 +149,7 @@ html body #facebox table {width: auto;}
 .posts td .created-at {padding-bottom: .5em; border-bottom: 1px solid #ccc; margin-bottom: 1.25em; color: #999; text-align: center;}
 .posts td .author {display: block; font-size: 1.5em; text-shadow: 2px 2px 2px #bbb;}
 .posts td .post-info {padding-top: .25em; display: block; text-shadow: 1px 1px 1px #fff;}
+.topics td {vertical-align: top;}
+.forums td {vertical-align: top;}
+.forums td.number {font-size: 1.25em;}
 .forums td .forum-title { font-size: 1.5em; letter-spacing: .06125em; font-weight: 500;}

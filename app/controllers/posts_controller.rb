@@ -2,6 +2,10 @@ class PostsController < ApplicationController
   resource_controller
   belongs_to :topic
   
+  restrict_to :only => [:create] do
+    parent_object.can_be_replied_to_by_current_user?
+  end
+  
   create.before     { object.author = current_user }
   create.wants.html { redirect_to [parent_object.forum, parent_object] }
   create.flash      { "Thanks for replying to '#{parent_object.title}'!" }

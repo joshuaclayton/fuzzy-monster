@@ -17,7 +17,7 @@ class Topic < ActiveRecord::Base
   
   after_create :create_initial_post
   
-  attr_accessible :title, :body, :sticky, :locked
+  attr_accessible :title, :body, :forum, :creator, :sticky, :locked
   
   attr_accessor :body
   

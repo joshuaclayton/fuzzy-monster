@@ -39,6 +39,7 @@ class Generate
   
   def self.topic(attributes = {})
     topic = Topic.new(attributes.reverse_merge({
+      :body => "Body text",
       :forum => Generate.forum,
       :creator => Generate.user,
       :title => "Random Title"

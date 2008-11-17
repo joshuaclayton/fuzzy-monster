@@ -3,4 +3,4 @@
 <% content :full do %>
   <%= render :partial => "posts/recordset", :locals => {:posts => @topic.posts} %>
 <% end %>
-<%= render :partial => "posts/reply_slider", :locals => {:forum => @forum, :topic => @topic} if @topic.can_be_replied_to_by_current_user? %>
+<%= render :partial => "posts/reply_slider", :locals => {:forum => @forum, :topic => @topic} %>
