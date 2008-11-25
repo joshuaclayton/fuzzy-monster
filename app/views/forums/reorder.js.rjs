@@ -1,0 +1,1 @@
+page["forums-recordset"].replace_html(:partial => "forums/recordset", :locals => {:forums => @forums})

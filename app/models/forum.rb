@@ -11,4 +11,11 @@ class Forum < ActiveRecord::Base
   def to_param
     self.slug
   end
+  
+  def self.reorder(array_of_ids)
+    array_of_ids.each_with_index do |id, index|
+      forum = self.find(id) rescue nil
+      forum.update_attribute(:position, index + 1) if forum
+    end
+  end
 end

@@ -42,7 +42,7 @@
       <% end %>
     </div>
     <div id="notification" style="display: none;"><%= image_tag("ajax-loader.gif") %> Waiting...</div>
-    <%= javascript_include_tag "jquery", "jrails" %>
+    <%= javascript_include_tag "jquery", "jrails", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.2/jquery-ui.min.js" %>
 
     <%= yield :footer %>
   </body>

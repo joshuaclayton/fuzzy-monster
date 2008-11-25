@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :forums do |forums_map|
+  map.resources :forums, :collection => {:reorder => :put} do |forums_map|
     forums_map.resources :topics do |topics_map|
       topics_map.resources :posts
     end

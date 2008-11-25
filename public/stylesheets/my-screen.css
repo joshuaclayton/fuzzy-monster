@@ -56,10 +56,13 @@ td.total {font-size: 1.2em;}
 div.inline label, div.checkbox label, div.radio label {display: inline; padding-right: 1em;}
 html body form .fieldWithErrors input {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
 html body form input.fieldWithErrors {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
+input.text, input.title, textarea, select {border:1px solid #a69363;}
 
 .inplaceeditor-form input.editor_field {margin:0.5em 0;border:1px solid #bbb;}
 label {display: block;}
-fieldset {padding:3em 0 1em 0;margin:0 0 1.5em 0; border: none; border-top: 1px solid #ccc; position: relative;}
+fieldset {padding:3em 0 1em 0;margin:0 0 1.5em 0; border: none; border-top: 1px solid #bbb; position: relative;}
+#slide-wrapper fieldset {border-top: 1px solid #a69363;}
+
 div.text {padding-bottom: .5em;}
 select.title {font-size: 1.5em; padding: .25em;}
 legend span {

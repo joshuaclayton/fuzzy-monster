@@ -5,6 +5,10 @@ class ForumsController < ApplicationController
     ForumsPresenter.new(:current_user => current_user).can_be_created_by_current_user?
   end
   
+  restrict_to :only => [:reorder] do
+    ForumsPresenter.new(:current_user => current_user).can_be_reordered_by_current_user?
+  end
+  
   restrict_to :only => [:edit, :update] do
     object.can_be_edited_by_current_user?
   end
@@ -13,8 +17,14 @@ class ForumsController < ApplicationController
     object.can_be_deleted_by_current_user?
   end
   
+  index.wants.js
   index.wants.xml { render :xml => @forums }
   show.wants.xml  { render :xml => @forum }
+  
+  def reorder
+    Forum.reorder params['forums-tbody']
+    index
+  end
   
   private
   
