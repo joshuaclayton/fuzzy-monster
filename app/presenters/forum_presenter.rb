@@ -8,11 +8,11 @@ class ForumPresenter
   end
   
   def can_be_edited_by_current_user?
-    !!(@current_user && @current_user.has_privilege?(:admin))
+    is_current_user_admin?
   end
   
   def can_be_deleted_by_current_user?
-    false
+    is_current_user_admin?
   end
   
   def can_topic_be_created_by_current_user?
@@ -21,5 +21,11 @@ class ForumPresenter
   
   def method_missing(call, *args)
     @forum.send call, *args
+  end
+  
+  private
+  
+  def is_current_user_admin?
+    !!(@current_user && @current_user.has_privilege?(:admin))
   end
 end

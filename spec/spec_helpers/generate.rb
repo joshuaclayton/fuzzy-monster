@@ -9,8 +9,8 @@ class Generate
   
   def self.admin_user(attributes = {})
     Generate.user(attributes.reverse_merge({
-      :role => "admin",
-      :privilege => "admin"
+      :role       => "admin",
+      :privilege  => "admin"
     }))
   end
   
@@ -20,13 +20,13 @@ class Generate
     key = ActiveSupport::SecureRandom.hex(16)
     
     user = User.new(attributes.reverse_merge({
-      :first_name => "John",
-      :last_name => "Doe",
-      :password => "password",
-      :password_confirmation => "password",
-      :active => true,
-      :username => key,
-      :email_address => "#{key}@test.com"}))
+      :first_name             => "John",
+      :last_name              => "Doe",
+      :password               => "password",
+      :password_confirmation  => "password",
+      :active                 => true,
+      :username               => key,
+      :email_address          => "#{key}@test.com"}))
     role = Role.find_or_create_by_name(default_role)
     privs = []
     default_privileges.each {|p| privs << Privilege.find_or_create_by_name(p)}
@@ -39,12 +39,22 @@ class Generate
   
   def self.topic(attributes = {})
     topic = Topic.new(attributes.reverse_merge({
-      :body => "Body text",
-      :forum => Generate.forum,
-      :creator => Generate.user,
-      :title => "Random Title"
+      :body     => "Body text",
+      :forum    => Generate.forum,
+      :creator  => Generate.user,
+      :title    => "Random Title"
     }))
     topic.save!
     topic
+  end
+  
+  def self.post(attributes = {})
+    post = Post.new(attributes.reverse_merge({
+      :body   => "Test post",
+      :author => (author = Generate.user),
+      :topic  => Generate.topic(:creator => author)
+    }))
+    post.save!
+    post
   end
 end
