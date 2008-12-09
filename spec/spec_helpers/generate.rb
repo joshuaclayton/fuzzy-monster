@@ -15,8 +15,6 @@ class Generate
   end
   
   def self.user(attributes = {})
-    default_role = attributes.delete(:role) || "user"
-    default_privileges = (["has_account"] << attributes.delete(:privilege)).compact.uniq
     key = ActiveSupport::SecureRandom.hex(16)
     
     user = User.new(attributes.reverse_merge({
@@ -26,13 +24,18 @@ class Generate
       :password_confirmation  => "password",
       :active                 => true,
       :username               => key,
-      :email_address          => "#{key}@test.com"}))
-    role = Role.find_or_create_by_name(default_role)
+      :email_address          => "#{key}@test.com"
+    }))
+    
+    default_privileges = (["has_account"] << attributes.delete(:privileges)).compact.uniq
+    role = Role.find_or_create_by_name(attributes.delete(:role) || "user")
+    
     privs = []
     default_privileges.each {|p| privs << Privilege.find_or_create_by_name(p)}
     
-    role.privileges << privs
     user.role = role
+    role.privileges << privs
+    
     user.save!
     user
   end
