@@ -1,0 +1,20 @@
+<% recordset(:headers => ["Forum", ["Topics", {:class => "number"}], ["Posts", {:class => "number"}]], :table => {:class => "forums"}) do %>
+  <tbody id="forums-tbody">
+    <% forums.each do |forum| %>
+      <% zebra_row :id => dom_id(forum), :class => ("grabbable" if forums.can_be_reordered_by_current_user?) do %>
+        <td>
+          <span class="forum-title"><%= link_to forum.name, forum %></span><br/>
+          <%= textilize forum.description %>
+        </td>
+        <td class="number"><%= forum.topics_count %></td>
+        <td class="number"><%= forum.posts_count %></td>
+      <% end %>
+    <% end %>
+  </tbody>
+<% end %>
+
+<%= sortable_forums_recordset if forums.can_be_reordered_by_current_user? && request.xhr? %>
+
+<% content_for :footer do %>
+  <%= sortable_forums_recordset if forums.can_be_reordered_by_current_user? %>
+<% end %>
