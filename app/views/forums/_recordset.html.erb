@@ -3,7 +3,9 @@
     <% forums.each do |forum| %>
       <% zebra_row :id => dom_id(forum), :class => ("grabbable" if forums.can_be_reordered_by_current_user?) do %>
         <td>
-          <span class="forum-title"><%= link_to forum.name, forum %></span><br/>
+          <span class="forum-title"><%= link_to forum.name, forum %></span>
+          <%= link_to "Delete", forum, :method => :delete, :confirm => "Are you sure?" if forum.can_be_deleted_by_current_user? %>
+          <br/>
           <%= textilize forum.description %>
         </td>
         <td class="number"><%= forum.topics_count %></td>
